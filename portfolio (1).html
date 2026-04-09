@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wisdom | Sales Development & Lead Generation Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #f5f0e8;
+    --accent: #e63329;
+    --accent2: #1a6b3c;
+    --muted: #6b6660;
+    --rule: #d4cfc6;
+    --card-bg: #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: var(--paper);
+    border-bottom: 1.5px solid var(--rule);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--muted);
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--ink); color: var(--paper) !important;
+    padding: 9px 22px; border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--accent) !important; color: var(--paper) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 72px;
+  }
+  .hero-left {
+    padding: 80px 48px 80px 48px;
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 1.5px solid var(--rule);
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 28px;
+  }
+  .hero-tag::before {
+    content: ''; width: 28px; height: 2px; background: var(--accent);
+  }
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    margin-bottom: 28px;
+  }
+  h1 span { color: var(--accent); }
+  .hero-sub {
+    font-size: 1.05rem; color: var(--muted); max-width: 480px;
+    line-height: 1.75; margin-bottom: 40px;
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent); color: #fff;
+    padding: 14px 32px; font-weight: 600; font-size: 0.9rem;
+    text-decoration: none; letter-spacing: 0.04em;
+    border-radius: 2px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(230,51,41,0.3); }
+  .btn-secondary {
+    border: 1.5px solid var(--ink); color: var(--ink);
+    padding: 14px 32px; font-weight: 600; font-size: 0.9rem;
+    text-decoration: none; letter-spacing: 0.04em;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { background: var(--ink); color: var(--paper); }
+
+  .hero-right {
+    padding: 80px 48px;
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 24px;
+  }
+  .stat-block {
+    border-left: 3px solid var(--accent);
+    padding: 20px 24px;
+    background: var(--card-bg);
+    box-shadow: 2px 2px 0 var(--rule);
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem; letter-spacing: 0.04em;
+    color: var(--ink); line-height: 1;
+  }
+  .stat-label { font-size: 0.82rem; color: var(--muted); margin-top: 4px; font-weight: 500; }
+  .tool-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .chip {
+    background: var(--ink); color: var(--paper);
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+    padding: 5px 12px; border-radius: 1px;
+    text-transform: uppercase;
+  }
+  .chip.green { background: var(--accent2); }
+  .chip.red { background: var(--accent); }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 96px 48px; }
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .section-tag::after { content: ''; flex: 1; min-width: 40px; height: 1px; background: var(--rule); }
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    line-height: 1; letter-spacing: 0.02em;
+    margin-bottom: 56px;
+  }
+  h2 span { color: var(--accent); }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--ink); color: var(--paper); }
+  #skills h2 { color: var(--paper); }
+  #skills h2 span { color: var(--accent); }
+  #skills .section-tag { color: #888; }
+  #skills .section-tag::after { background: #333; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .skill-card {
+    background: #1a1a1a;
+    padding: 40px 32px;
+    transition: background 0.25s;
+  }
+  .skill-card:hover { background: #222; }
+  .skill-icon {
+    font-size: 2rem; margin-bottom: 16px; display: block;
+  }
+  .skill-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem; letter-spacing: 0.04em;
+    color: var(--paper); margin-bottom: 12px;
+  }
+  .skill-card p { font-size: 0.88rem; color: #999; line-height: 1.7; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+  .skill-tag {
+    border: 1px solid #333; color: #aaa;
+    font-size: 0.7rem; padding: 4px 10px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+
+  /* ── CASE STUDIES ── */
+  #work { background: var(--paper); }
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .case-card {
+    background: var(--card-bg);
+    border: 1.5px solid var(--rule);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+  .case-card:hover {
+    box-shadow: 6px 6px 0 var(--ink);
+    transform: translate(-3px, -3px);
+  }
+  .case-card::before {
+    content: attr(data-num);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 6rem; color: var(--paper);
+    position: absolute; top: -10px; right: 16px;
+    line-height: 1; pointer-events: none;
+    opacity: 0.6;
+  }
+  .case-label {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .case-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem; letter-spacing: 0.03em;
+    margin-bottom: 16px; line-height: 1.1;
+  }
+  .case-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+  .case-results {
+    display: flex; gap: 24px; flex-wrap: wrap;
+    border-top: 1px solid var(--rule);
+    padding-top: 20px; margin-top: 4px;
+  }
+  .result-item { }
+  .result-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem; color: var(--accent2); letter-spacing: 0.04em;
+  }
+  .result-desc { font-size: 0.75rem; color: var(--muted); font-weight: 500; }
+
+  /* ── PROCESS ── */
+  #process { background: #f0ebe0; }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1.5px solid var(--rule);
+  }
+  .process-step {
+    padding: 40px 32px;
+    border-right: 1.5px solid var(--rule);
+    position: relative;
+  }
+  .process-step:last-child { border-right: none; }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem; color: var(--rule);
+    line-height: 1; margin-bottom: 16px;
+  }
+  .process-step h3 {
+    font-weight: 700; font-size: 1rem;
+    margin-bottom: 12px; letter-spacing: 0.02em;
+  }
+  .process-step p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+
+  /* ── TOOLS ── */
+  #tools { background: var(--ink); color: var(--paper); }
+  #tools h2 { color: var(--paper); }
+  #tools h2 span { color: var(--accent); }
+  #tools .section-tag { color: #888; }
+  #tools .section-tag::after { background: #333; }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .tool-group h4 {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 16px; padding-bottom: 8px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .tool-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .tool-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent2); flex-shrink: 0;
+  }
+  .tool-name { font-size: 0.9rem; color: #ccc; }
+  .tool-use { font-size: 0.75rem; color: #666; }
+
+  /* ── SAMPLE EMAILS ── */
+  #emails { background: var(--paper); }
+  .email-tabs {
+    display: flex; gap: 0; margin-bottom: 32px;
+    border-bottom: 2px solid var(--rule);
+  }
+  .email-tab {
+    padding: 12px 28px; cursor: pointer;
+    font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--muted);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.2s;
+    background: none; border-top: none; border-left: none; border-right: none;
+  }
+  .email-tab.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .email-panel { display: none; }
+  .email-panel.active { display: block; }
+  .email-mock {
+    background: #fff;
+    border: 1.5px solid var(--rule);
+    border-radius: 2px;
+    max-width: 680px;
+  }
+  .email-header {
+    background: #f8f8f8;
+    border-bottom: 1px solid var(--rule);
+    padding: 20px 28px;
+  }
+  .email-field {
+    font-size: 0.82rem; color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .email-field strong { color: var(--ink); }
+  .email-body { padding: 28px; font-size: 0.9rem; line-height: 1.8; color: #333; }
+  .email-body p { margin-bottom: 14px; }
+  .email-body .highlight { color: var(--accent); font-weight: 600; }
+  .email-note {
+    background: #f0f8f3;
+    border-left: 3px solid var(--accent2);
+    padding: 14px 20px;
+    margin-top: 20px;
+    font-size: 0.82rem; color: var(--muted);
+    line-height: 1.6;
+  }
+  .email-note strong { color: var(--accent2); }
+
+  /* ── LINKEDIN ── */
+  #linkedin { background: #f0ebe0; }
+  .li-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .li-card {
+    background: var(--card-bg);
+    border: 1.5px solid var(--rule);
+    padding: 32px;
+  }
+  .li-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem; letter-spacing: 0.03em;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+  .li-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; margin-bottom: 14px; }
+  .li-step {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 14px 0; border-bottom: 1px solid var(--rule);
+  }
+  .li-step:last-child { border-bottom: none; }
+  .li-step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem; color: var(--rule);
+    line-height: 1; flex-shrink: 0; width: 28px;
+  }
+  .li-step-body { font-size: 0.86rem; color: var(--muted); line-height: 1.65; }
+  .li-step-body strong { color: var(--ink); }
+
+  /* ── CTA ── */
+  #contact {
+    background: var(--ink); color: var(--paper);
+    text-align: center;
+    padding: 96px 48px;
+  }
+  #contact h2 { color: var(--paper); margin-bottom: 20px; }
+  #contact h2 span { color: var(--accent); }
+  #contact p { color: #888; max-width: 520px; margin: 0 auto 40px; font-size: 0.95rem; line-height: 1.75; }
+  .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid #1a1a1a;
+    padding: 24px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  footer p { font-size: 0.78rem; color: #555; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * { animation: fadeUp 0.6s ease both; }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.35s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.5s; }
+  .hero-right { animation: fadeUp 0.8s ease 0.3s both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { border-right: none; border-bottom: 1.5px solid var(--rule); padding: 60px 24px; }
+    .hero-right { padding: 40px 24px; }
+    .skills-grid, .cases-grid, .tools-grid, .li-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    nav { padding: 16px 24px; }
+    section { padding: 64px 24px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Wisdom</a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#emails">Cold Emails</a></li>
+    <li><a href="#linkedin">LinkedIn</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Sales Development Representative</div>
+    <h1>I FILL<br><span>PIPELINES,</span><br>NOT SEATS.</h1>
+    <p class="hero-sub">
+      Lead generation specialist with 5+ years of outbound sales experience — cold email sequences, LinkedIn Sales Navigator prospecting, and CRM-driven pipeline building for B2B teams.
+    </p>
+    <div class="hero-btns">
+      <a href="#work" class="btn-primary">See My Work</a>
+      <a href="#contact" class="btn-secondary">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-block">
+      <div class="stat-num">40%+</div>
+      <div class="stat-label">Average open rate on cold email campaigns</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">300+</div>
+      <div class="stat-label">Qualified leads generated per month via LinkedIn Sales Navigator</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">5 YRS</div>
+      <div class="stat-label">Building pipelines across nonprofit, SaaS, and B2B services</div>
+      <div class="tool-chips" style="margin-top:12px">
+        <span class="chip red">Apollo.io</span>
+        <span class="chip green">HubSpot</span>
+        <span class="chip">Sales Navigator</span>
+        <span class="chip">Instantly.ai</span>
+        <span class="chip">Lemlist</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-tag">Core Competencies</div>
+  <h2>WHAT I <span>DO.</span></h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <span class="skill-icon">🎯</span>
+      <h3>Lead Generation & Prospecting</h3>
+      <p>Multi-channel prospecting using intent data, ICP filtering, and account-based strategies to surface decision-makers worth reaching.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">ICP Definition</span>
+        <span class="skill-tag">Intent Data</span>
+        <span class="skill-tag">List Building</span>
+        <span class="skill-tag">Data Enrichment</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">✉️</span>
+      <h3>Cold Email Campaigns</h3>
+      <p>Research-backed outreach with hyper-personalized messaging. End-to-end sequence management from copywriting to deliverability optimization.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Sequence Design</span>
+        <span class="skill-tag">A/B Testing</span>
+        <span class="skill-tag">Deliverability</span>
+        <span class="skill-tag">Personalization</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">🔗</span>
+      <h3>LinkedIn Sales Navigator</h3>
+      <p>Boolean search mastery, account mapping, lead list exports, and connection-to-conversation frameworks that consistently book meetings.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Boolean Search</span>
+        <span class="skill-tag">Account Mapping</span>
+        <span class="skill-tag">InMail Outreach</span>
+        <span class="skill-tag">Social Selling</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">⚙️</span>
+      <h3>CRM & Pipeline Management</h3>
+      <p>Clean data hygiene, activity logging, and pipeline stage management so nothing falls through the cracks.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">HubSpot</span>
+        <span class="skill-tag">Apollo CRM</span>
+        <span class="skill-tag">Pipeline Stages</span>
+        <span class="skill-tag">Reporting</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">🤖</span>
+      <h3>AI-Augmented Research</h3>
+      <p>Using Apollo, Hunter.io, and AI tooling to enrich accounts at scale — trigger-based outreach that hits prospects at the right moment.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Apollo.io</span>
+        <span class="skill-tag">Hunter.io</span>
+        <span class="skill-tag">Trigger Events</span>
+        <span class="skill-tag">Enrichment</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">📞</span>
+      <h3>Qualification & Handoffs</h3>
+      <p>BANT and MEDDIC-aligned discovery conversations that qualify fast and hand off clean opportunities to Account Executives.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">BANT</span>
+        <span class="skill-tag">Discovery Calls</span>
+        <span class="skill-tag">AE Handoff</span>
+        <span class="skill-tag">Meeting Setting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="work">
+  <div class="section-tag">Portfolio</div>
+  <h2>CAMPAIGNS THAT <span>CONVERTED.</span></h2>
+  <div class="cases-grid">
+
+    <div class="case-card" data-num="01">
+      <div class="case-label">Cold Email · B2B Services</div>
+      <h3>5-Touch Sequence for a US Grant Consulting Firm</h3>
+      <p>Designed and executed a 5-step cold email sequence targeting development directors at mid-sized nonprofits. Research-first approach with custom first lines referencing each org's recent grant activity. Managed in Apollo.io with A/B subject line testing.</p>
+      <div class="case-results">
+        <div class="result-item">
+          <div class="result-val">44%</div>
+          <div class="result-desc">Open Rate</div>
+        </div>
+        <div class="result-item">
+          <div class="result-val">9%</div>
+          <div class="result-desc">Reply Rate</div>
+        </div>
+        <div class="result-item">
+          <div class="result-val">12</div>
+          <div class="result-desc">Meetings Booked</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card" data-num="02">
+      <div class="case-label">LinkedIn Prospecting · SaaS</div>
+      <h3>Sales Navigator Campaign: HR Tech Decision-Makers</h3>
+      <p>Built targeted lead lists using Sales Navigator's persona filters (title, company size, industry, growth signals). Used connection requests + InMail sequences with a content-led warm-up approach. Tracked everything in HubSpot.</p>
+      <div class="case-results">
+        <div class="result-item">
+          <div class="result-val">320</div>
+          <div class="result-desc">Qualified Leads</div>
+        </div>
+        <div class="result-item">
+          <div class="result-val">28%</div>
+          <div class="result-desc">Connection Rate</div>
+        </div>
+        <div class="result-item">
+          <div class="result-val">18</div>
+          <div class="result-desc">Discovery Calls</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card" data-num="03">
+      <div class="case-label">Multi-Channel · Workforce Dev</div>
+      <h3>Outreach for Workforce Development RFP Opportunities</h3>
+      <p>Prospected government contracting officers and workforce boards using both email and LinkedIn. Identified relevant RFPs, built decision-maker maps, and sent tailored capability statements via outreach sequences that positioned the client as the right fit.</p>
+      <div class="case-results">
+        <div class="result-item">
+          <div class="result-val">6</div>
+          <div class="result-desc">RFP Engagements</div>
+        </div>
+        <div class="result-item">
+          <div class="result-val">3</div>
+          <div class="result-desc">Awarded Contracts</div>
+        </div>
+        <div class="result-item">
+          <div class="result-val">50%</div>
+          <div class="result-desc">Win Rate</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card" data-num="04">
+      <div class="case-label">Lead Research · Telehealth</div>
+      <h3>Investor & Accelerator Prospect List — StatWellMD</h3>
+      <p>Built a curated outreach list of 80+ VC firms and healthcare accelerators aligned to a telehealth startup's funding profile. Enriched contacts via Apollo and Hunter.io, identified warm intro paths via LinkedIn, and drafted first-contact messaging for each tier.</p>
+      <div class="case-results">
+        <div class="result-item">
+          <div class="result-val">80+</div>
+          <div class="result-desc">Qualified Prospects</div>
+        </div>
+        <div class="result-item">
+          <div class="result-val">100%</div>
+          <div class="result-desc">Data Enriched</div>
+        </div>
+        <div class="result-item">
+          <div class="result-val">3-Tier</div>
+          <div class="result-desc">Priority Segmentation</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-tag">How I Work</div>
+  <h2>THE <span>PROCESS.</span></h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <h3>ICP & Account Research</h3>
+      <p>Define the Ideal Customer Profile, identify target accounts, and map decision-makers using Sales Navigator and Apollo prospecting.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <h3>List Build & Enrichment</h3>
+      <p>Source verified contact data — email, phone, LinkedIn — and enrich with firmographic signals, tech stack, and recent trigger events.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <h3>Outreach Sequencing</h3>
+      <p>Write hyper-personalized multi-touch sequences across email and LinkedIn. A/B test subject lines, CTAs, and messaging angles.</p>
+    </div>
+    <div class="process-step" style="border-right:none">
+      <div class="step-num">04</div>
+      <h3>Qualify & Hand Off</h3>
+      <p>Respond to replies, run brief discovery to qualify intent, update CRM, and hand off SQLs to the Account Executive with full context.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="section-tag">Tech Stack</div>
+  <h2>TOOLS I <span>OPERATE.</span></h2>
+  <div class="tools-grid">
+    <div class="tool-group">
+      <h4>Prospecting & Data</h4>
+      <div class="tool-item"><div class="tool-dot"></div><div><div class="tool-name">Apollo.io</div><div class="tool-use">Lead sourcing, sequences, email sending</div></div></div>
+      <div class="tool-item"><div class="tool-dot"></div><div><div class="tool-name">LinkedIn Sales Navigator</div><div class="tool-use">Account & contact prospecting</div></div></div>
+      <div class="tool-item"><div class="tool-dot"></div><div><div class="tool-name">Hunter.io</div><div class="tool-use">Email verification & discovery</div></div></div>
+      <div class="tool-item"><div class="tool-dot"></div><div><div class="tool-name">Snov.io</div><div class="tool-use">Email finder & drip campaigns</div></div></div>
+    </div>
+    <div class="tool-group">
+      <h4>CRM & Automation</h4>
+      <div class="tool-item"><div class="tool-dot" style="background:var(--accent)"></div><div><div class="tool-name">HubSpot</div><div class="tool-use">Pipeline, contacts, deal stages</div></div></div>
+      <div class="tool-item"><div class="tool-dot" style="background:var(--accent)"></div><div><div class="tool-name">Apollo CRM</div><div class="tool-use">Sequences, activity tracking, reporting</div></div></div>
+      <div class="tool-item"><div class="tool-dot" style="background:var(--accent)"></div><div><div class="tool-name">Zapier</div><div class="tool-use">Cross-platform automation</div></div></div>
+      <div class="tool-item"><div class="tool-dot" style="background:var(--accent)"></div><div><div class="tool-name">Notion</div><div class="tool-use">Sequence tracking & SOPs</div></div></div>
+    </div>
+    <div class="tool-group">
+      <h4>Email & Communication</h4>
+      <div class="tool-item"><div class="tool-dot" style="background:#6b6660"></div><div><div class="tool-name">Instantly.ai</div><div class="tool-use">Warm-up & bulk cold email</div></div></div>
+      <div class="tool-item"><div class="tool-dot" style="background:#6b6660"></div><div><div class="tool-name">Lemlist</div><div class="tool-use">Personalized outreach with images</div></div></div>
+      <div class="tool-item"><div class="tool-dot" style="background:#6b6660"></div><div><div class="tool-name">Google Workspace</div><div class="tool-use">Email infrastructure</div></div></div>
+      <div class="tool-item"><div class="tool-dot" style="background:#6b6660"></div><div><div class="tool-name">Loom</div><div class="tool-use">Personalized video prospecting</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COLD EMAIL SAMPLES -->
+<section id="emails">
+  <div class="section-tag">Writing Samples</div>
+  <h2>COLD EMAIL <span>PLAYBOOK.</span></h2>
+
+  <div class="email-tabs">
+    <button class="email-tab active" onclick="showTab('email1', this)">Nonprofit / Touch 1</button>
+    <button class="email-tab" onclick="showTab('email2', this)">SaaS Follow-Up</button>
+    <button class="email-tab" onclick="showTab('email3', this)">Break-Up Email</button>
+  </div>
+
+  <div id="email1" class="email-panel active">
+    <div class="email-mock">
+      <div class="email-header">
+        <div class="email-field"><strong>Subject:</strong> Grant for {{org}} — missed this one?</div>
+        <div class="email-field"><strong>To:</strong> {{first_name}} {{last_name}}, {{title}} @ {{org}}</div>
+        <div class="email-field"><strong>From:</strong> [Sender Name], [Company]</div>
+      </div>
+      <div class="email-body">
+        <p>Hi {{first_name}},</p>
+        <p>I noticed {{org}} has been doing strong work in <span class="highlight">{{program_area}}</span> — your <span class="highlight">{{recent_initiative}}</span> caught my attention.</p>
+        <p>We work with organizations like yours to identify and secure grant funding that often gets missed in-house — particularly federal discretionary grants and foundation funding aligned to your work.</p>
+        <p>Most of our clients find 3–5 viable opportunities in their first research sprint. Happy to do a quick scan for {{org}} at no cost so you can see what's out there before the next deadline window closes.</p>
+        <p>Worth a 15-minute conversation?</p>
+        <p>Best,<br>[Name]</p>
+      </div>
+    </div>
+    <div class="email-note">
+      <strong>Why it works:</strong> Opens with a specific signal (research + named initiative), leads with value (free scan), and uses a low-friction CTA. The personalization variables make each send feel 1:1 even at scale.
+    </div>
+  </div>
+
+  <div id="email2" class="email-panel">
+    <div class="email-mock">
+      <div class="email-header">
+        <div class="email-field"><strong>Subject:</strong> Re: Quick question for {{first_name}}</div>
+        <div class="email-field"><strong>To:</strong> {{first_name}} {{last_name}}, {{title}} @ {{company}}</div>
+        <div class="email-field"><strong>From:</strong> [Sender Name], [Company]</div>
+      </div>
+      <div class="email-body">
+        <p>{{first_name}},</p>
+        <p>Circling back on my note from last week — I know inboxes are brutal.</p>
+        <p>One thing I didn't mention: teams in {{industry}} using our platform typically cut manual prospecting time by <span class="highlight">60%</span> in the first 30 days. That's time back for actual selling.</p>
+        <p>I'll keep it short — do you have 10 minutes Thursday or Friday this week?</p>
+        <p>Either way, I can send over a quick breakdown of how we work with {{company_type}} teams if that's easier.</p>
+        <p>[Name]</p>
+      </div>
+    </div>
+    <div class="email-note">
+      <strong>Why it works:</strong> Short, punchy follow-up that adds new value (the 60% stat) instead of just "bumping" the thread. Two-option CTA reduces decision fatigue.
+    </div>
+  </div>
+
+  <div id="email3" class="email-panel">
+    <div class="email-mock">
+      <div class="email-header">
+        <div class="email-field"><strong>Subject:</strong> Closing the loop, {{first_name}}</div>
+        <div class="email-field"><strong>To:</strong> {{first_name}} {{last_name}}, {{title}} @ {{company}}</div>
+        <div class="email-field"><strong>From:</strong> [Sender Name], [Company]</div>
+      </div>
+      <div class="email-body">
+        <p>{{first_name}},</p>
+        <p>I've reached out a few times — I don't want to keep clogging your inbox if the timing isn't right.</p>
+        <p>I'll take this as a "not now," and I'll close out my notes on {{company}}.</p>
+        <p>If anything changes — new initiative, funding cycle, or just a better quarter — you know where to find me.</p>
+        <p>Wishing you a strong rest of the year.</p>
+        <p>[Name]</p>
+      </div>
+    </div>
+    <div class="email-note">
+      <strong>Why it works:</strong> Break-up emails consistently generate the most replies of any sequence touch. The "closing the loop" framing respects their time while keeping the door open — no guilt, no pressure.
+    </div>
+  </div>
+</section>
+
+<!-- LINKEDIN SECTION -->
+<section id="linkedin">
+  <div class="section-tag">Platform Expertise</div>
+  <h2>LINKEDIN SALES <span>NAVIGATOR.</span></h2>
+  <div class="li-grid">
+    <div class="li-card">
+      <h3>How I Build Prospect Lists</h3>
+      <div class="li-step">
+        <div class="li-step-num">1</div>
+        <div class="li-step-body"><strong>ICP Filtering:</strong> Combine title, seniority, geography, company size, and industry to narrow from millions of profiles to the 200–500 most relevant accounts.</div>
+      </div>
+      <div class="li-step">
+        <div class="li-step-num">2</div>
+        <div class="li-step-body"><strong>Boolean Search:</strong> Use AND/OR/NOT operators to layer in niche signals — e.g., "(VP OR Director) AND (Grants OR Funding) NOT (Student)".</div>
+      </div>
+      <div class="li-step">
+        <div class="li-step-num">3</div>
+        <div class="li-step-body"><strong>Account-Level Mapping:</strong> Pull multiple contacts per target account — champion, economic buyer, and gatekeeper — so outreach can run in parallel.</div>
+      </div>
+      <div class="li-step">
+        <div class="li-step-num">4</div>
+        <div class="li-step-body"><strong>Export & Enrich:</strong> Export leads to Apollo or Hunter.io for email address enrichment, phone verification, and additional firmographic layering before outreach.</div>
+      </div>
+    </div>
+    <div class="li-card">
+      <h3>My LinkedIn Outreach Framework</h3>
+      <p>Connection requests, InMail, and profile-to-conversation conversion — here's what I've found actually works:</p>
+      <div class="li-step">
+        <div class="li-step-num">→</div>
+        <div class="li-step-body"><strong>Connection Note (under 300 chars):</strong> Lead with a relevance signal — a mutual connection, shared content, or a specific observation about their work. Never pitch in the note.</div>
+      </div>
+      <div class="li-step">
+        <div class="li-step-num">→</div>
+        <div class="li-step-body"><strong>Warm-up Message:</strong> After connecting, send a value-add message (article, resource, or insight) before any ask. Build credibility first.</div>
+      </div>
+      <div class="li-step">
+        <div class="li-step-num">→</div>
+        <div class="li-step-body"><strong>Soft CTA:</strong> The third touchpoint introduces a question or low-friction CTA — never a calendar link in the first message. Curiosity opens doors; calendars close them.</div>
+      </div>
+      <div class="li-step">
+        <div class="li-step-num">→</div>
+        <div class="li-step-body"><strong>InMail for Unreachables:</strong> Reserved for senior decision-makers who haven't accepted connections — short, specific, and ends with a binary yes/no question.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / CTA -->
+<section id="contact">
+  <div class="section-tag" style="justify-content:center; color:#555">
+    <span>Ready to Work</span>
+  </div>
+  <h2>LET'S BUILD YOUR <span>PIPELINE.</span></h2>
+  <p>
+    I'm open to remote SDR roles, fractional lead generation engagements, and prospecting-on-demand projects. If you need someone who can go from ICP brief to booked meetings fast — let's talk.
+  </p>
+  <div class="contact-links">
+    <a href="/cdn-cgi/l/email-protection#7900160c0b391c14181015571a1614" class="btn-primary">Email Me</a>
+    <a href="https://linkedin.com/in/your-linkedin" target="_blank" class="btn-secondary" style="border-color:#555; color:#aaa;">LinkedIn</a>
+    <a href="https://upwork.com/freelancers/your-profile" target="_blank" class="btn-secondary" style="border-color:#555; color:#aaa;">Upwork Profile</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Wisdom — Lead Generation & Sales Development</p>
+  <p style="color:#444">Apollo · Sales Navigator · HubSpot · Instantly.ai · Lemlist</p>
+</footer>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.email-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.email-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script></body>
+</html>
